@@ -1,12 +1,12 @@
-import logo from "../assets/react.svg";
-import searchIcon from "../assets/icons-search.svg";
-import menuIcon from "../assets/icons-menu.svg";
-import phoneIcon from "../assets/phone.svg";
+import logo from "../../assets/react.svg";
+import searchIcon from "../../assets/icons-search.svg";
+import menuIcon from "../../assets/icons-menu.svg";
+import phoneIcon from "../../assets/phone.svg";
 import { useState } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { useLocation } from "react-router";
-import { Link } from "./ui/link";
-import { Button } from "./ui/button";
+import { Link } from "../ui/link";
+import { Button } from "../ui/button";
 import { FaXmark } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa6";
 function Navbar() {

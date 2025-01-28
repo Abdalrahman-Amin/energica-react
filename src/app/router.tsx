@@ -1,16 +1,9 @@
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
-import {
-   createBrowserRouter,
-   Navigate,
-   Outlet,
-   useLocation,
-} from "react-router";
+import { createBrowserRouter, Navigate, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom";
 
 import { paths } from "../config/paths";
-import Navbar from "../components/Navbar.tsx";
-import Footer from "../components/Footer.tsx";
 
 const convert = (queryClient: QueryClient) => (m: any) => {
    const { clientLoader, clientAction, default: Component, ...rest } = m;
@@ -23,16 +16,7 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 };
 
 const AppLayout = () => {
-   const location = useLocation();
-   const excludeNavbarPaths = ["/login", "/register"];
-
-   return (
-      <>
-         {!excludeNavbarPaths.includes(location.pathname) && <Navbar />}
-         <Outlet />
-         <Footer />
-      </>
-   );
+   return <Outlet />;
 };
 
 export const createAppRouter = (queryClient: QueryClient) =>
@@ -47,7 +31,7 @@ export const createAppRouter = (queryClient: QueryClient) =>
             {
                path: paths.home.path,
                lazy: () =>
-                  import("./routes/landing.tsx").then(convert(queryClient)),
+                  import("./routes/HomePage.tsx").then(convert(queryClient)),
             },
             {
                path: "*",
